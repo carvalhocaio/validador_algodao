@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+cx-oracle = "==6.0.3"
+python-decouple = "*"
+dj-database-url = "*"
+django-cors-headers = "*"
+django-extensions = "*"
+django-filter = "*"
+django-rest-auth = "*"
+djangorestframework = "*"
+mysqlclient = "==1.3.13"
+celery = "*"
+redis = "*"
+django-celery-beat = "*"
+django-celery-results = "*"
+zeep = "*"
+pytest-django = "*"
+werkzeug = "*"
+
+[dev-packages]
+sqlformatter = "*"
+pytest = "*"
+pytest-cov = "*"
+codecov = "*"
+notebook = "*"
+
+[requires]
+python_version = "3.6"

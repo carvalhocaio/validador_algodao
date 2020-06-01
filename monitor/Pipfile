@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+notebook = "*"
+
+[packages]
+celery = "*"
+cx-oracle = "==6.0.3"
+python-decouple = "*"
+dj-database-url = "*"
+"o365" = "==0.9.14"
+
+[requires]
+python_version = "3.6"

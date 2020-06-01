@@ -1,0 +1,20 @@
+[uwsgi]
+socket = validador.sock
+master = true
+wsgi-file = config/wsgi.py
+processes = 4
+enable-threads = true
+threads = 10
+max_requests = 50
+harakiri = 60
+stats = 127.0.0.1:9298
+stats-http = true
+uid = www-data
+gid = www-data
+chmod-socket = 666
+chdir = /home/deploy/projects/integracao/validador/api
+home = /home/deploy/projects/integracao/validador/api/.venv/
+logger = file:/home/deploy/projects/integracao/validador/api/logs/uwsgi.log
+vacuum = true
+ignore-write-errors = true
+disable-write-exception = true

@@ -1,0 +1,13 @@
+.DS_Store
+.env
+.envdev
+.idea
+.venv
+.monitor
+*.sqlite3
+*pyc
+.ipynb_checkpoints
+*.ipynb
+.vscode
+static/
+*.logs
