@@ -8,8 +8,7 @@ from .models import (NotaFiscal,
                       OSAgricola,
                       ApontamentoProducao,
                       InsumoGin,
-                      Pedido,
-                      Algodao)
+                      Pedido)
 
 
 class InputFilter(admin.SimpleListFilter):
@@ -121,14 +120,3 @@ class PedidoAdmin(admin.ModelAdmin):
                     'tempo_processamento',
                     'status', ]
 
-
-
-@admin.register(Algodao)
-class AlgodaoAdmin(admin.ModelAdmin):
-    list_filter = (TokenFilter, 'status', 'data', 'operacao',)
-    list_display = ['token',
-                    'wsdl_retorno',
-                    'operacao',
-                    'data',
-                    'tempo_processamento',
-                    'status', ]

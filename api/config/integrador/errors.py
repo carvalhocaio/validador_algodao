@@ -29,6 +29,3 @@ class PedidoErroIntegracao(Exception):
 class AbastecimentoErroIntegracao(Exception):
     pass
 
-
-class AlgodaoErroIntegracao(Exception):
-    pass

@@ -8,8 +8,7 @@ from config.integrador.errors import (OSAutomotivaError,
                                       AbastecimentoErroIntegracao,
                                       ApontamentoProducaoError,
                                       InsumoGinError,
-                                      PedidoErroIntegracao,
-                                      AlgodaoErroIntegracao)
+                                      PedidoErroIntegracao)
 from config.integrador.models import (OperacaoBase,
                                       OSAgricola,
                                       OSAutomotiva,
@@ -18,16 +17,14 @@ from config.integrador.models import (OperacaoBase,
                                       AbastecimentoItem,
                                       ApontamentoProducao,
                                       InsumoGin,
-                                      Pedido,
-                                      Algodao)
+                                      Pedido)
 from config.integrador.queries import (QR_ABASTECIMENTO)
 from config.integrador.wsdls import (RunWsdlSenior)
 from config.integrador.parsers import (ParserDefault,
                                        ParserAbastecimento,
                                        ParserOSAutomotiva,
                                        ParserNotaFiscal,
-                                       ParserPedido,
-                                       ParserAlgodao)
+                                       ParserPedido)
 from config.oracle import OracleDB
 
 
@@ -162,18 +159,6 @@ class HttpRun(HttpGatecRequest):
                                 error_class=InsumoGinError,
                                 parser_retorno=ParserDefault)
 
-        """
-        Integração de Estoque Algodao 
-        """
-        modulo['ALG'] = dict(wsdl=RunWsdlSenior,
-                                wsdl_url=f'{wsdl_base}/g5-senior-services/sapiens_Synccom_gs_g1_co_int_integracoes?wsdl',
-                                wsdl_service='IntegraAlgodao',
-                                wsdl_params=('token',),
-                                model=Algodao,
-                                get_data=None,
-                                erro_classe=AlgodaoErroIntegracao,
-                                parser_retorno=ParserAlgodao)
- 
         runner_params = modulo[self.modulo]
 
         self.integrate(**runner_params)

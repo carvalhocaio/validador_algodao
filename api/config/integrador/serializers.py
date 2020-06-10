@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Abastecimento, AbastecimentoItem, OSAutomotiva, Algodao
+from .models import Abastecimento, AbastecimentoItem, OSAutomotiva
 
 class AbastecimentoItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,10 +20,4 @@ class OSAutomotivaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OSAutomotiva
-        fields = "__all__"
-
-
-class AlgodaoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Algodao
         fields = "__all__"

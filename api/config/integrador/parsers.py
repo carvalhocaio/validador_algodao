@@ -1,4 +1,4 @@
-from .models import (OperacaoBase, Abastecimento, OSAutomotiva, NotaFiscal, Algodao)
+from .models import (OperacaoBase, Abastecimento, OSAutomotiva, NotaFiscal)
 
 class ParserMain:
     def __init__(self, data_object):
@@ -83,26 +83,6 @@ class ParserNotaFiscal(ParserMain):
                     num_ped = retorno[0]['numPed']
                     msg = f'- NF {num_nfv}, Pedido {num_ped}'
                     return st.format(msg)
-
-            return st.format(data)
-
-
-class ParserAlgodao(ParserMain):
-    def __init__(self, data_object: Algodao):
-        super().__init__(data_object)
-
-    def run(self):
-        data = self.data_object.wsdl_retorno
-        st = 'Ok - {}' if not self.data_object.status_erro() else 'Erro - {}'
-
-        try:
-            data = eval(data)
-        except Exception:
-            return st.format(data)
-        else:
-            if isinstance(data, dict):
-                if data.get('mensagemRetorno', None) is not None:
-                    return st.format(data['mensagemRetorno'])
 
             return st.format(data)
 

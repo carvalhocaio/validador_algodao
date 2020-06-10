@@ -187,19 +187,3 @@ class Pedido(OperacaoBase, WSDLBase):
     def __str__(self):
         return self.token
 
-
-
-class Algodao(OperacaoBase, WSDLBase):
-    token = models.CharField(max_length=100)
-    operacao = models.CharField(max_length=25, null=True, blank=True)
-    data = models.DateTimeField(auto_now_add=True)
-    usuario = models.CharField(max_length=100)
-    senha = models.CharField(max_length=100)
-    rotina = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name_plural = 'algodao'
-
-    def __str__(self):
-        return self.token
-
