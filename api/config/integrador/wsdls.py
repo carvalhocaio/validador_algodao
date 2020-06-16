@@ -33,6 +33,8 @@ class WSDLBase:
             self.client_wsdl = Client(wsdl=self.wsdl_url)
 
         except (HTTPError, ConnectionError) as e:
+            print(HTTPError)
+            print(ConnectionError)
             raise WsdlError('Serviço de integração com ERP está indisponível. Favor verificar com TI!')
 
         except Exception as e:
@@ -40,7 +42,7 @@ class WSDLBase:
             raise WsdlError(e)
 
         if self.client_wsdl is None:
-            raise WsdlError('Serviço de integração com ERP está indisponível. Favor verificar com TI!')
+            raise WsdlError('Client WSDL não definido!')
 
 
 class RunWsdlSenior(WSDLBase):

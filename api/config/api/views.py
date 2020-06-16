@@ -2,8 +2,8 @@ from django.shortcuts import render
 import django_filters.rest_framework
 from rest_framework import viewsets, permissions
 from django_filters.rest_framework import DjangoFilterBackend
-from config.integrador.models import Abastecimento, OSAutomotiva, Algodao
-from config.integrador.serializers import AbastecimentoSerializer, OSAutomotivaSerializer, AlgodaoSerializer
+from config.integrador.models import Abastecimento, OSAutomotiva
+from config.integrador.serializers import AbastecimentoSerializer, OSAutomotivaSerializer
 
 
 class AbastecimentoViewSet(viewsets.ReadOnlyModelViewSet):
@@ -27,13 +27,3 @@ class OSAutomotivaViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ('token', 'status', 'wsdl_erro')
 
-
-class AlgodaoViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API para listagem e detalhes da integração de algodão
-    """
-    queryset = Algodao.objects.all().order_by('-id')
-    serializer_class = AlgodaoSerializer
-    permission_classes = (permissions.IsAuthenticated,)
-    filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('token', 'status', 'wsdl_erro')
